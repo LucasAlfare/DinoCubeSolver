@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class State {
 
     public byte[] permutation;
-    public int nPieces = 11;
+    public int nPieces = 11; //
 
     public State(byte[] permutation) {
         this.permutation = permutation;
