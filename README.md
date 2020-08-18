@@ -17,7 +17,7 @@ After the indexing phase the search just uses the created database as a lookup t
 
 # How this program works
 
-To achieve solutions, the class `Generator.java` performs the indexing phase and stores the results in a binary file of extension `.depth`. The file has 77963 KB.
+To achieve solutions, the class `Generator.java` performs the indexing phase and stores the results in a binary file of extension `.dino`. The file has 19491 KB.
 
 That file is loaded by the class `Search.java`, which also provides the static method `search(State)`, which returns a list containing the indexes of each move that solves the state passed.
 
