@@ -85,13 +85,13 @@ public class Generator {
 
         System.out.println("Gravando distancias no arquivo distances.dino...");
         BEGIN = System.currentTimeMillis();
-        write(distance);
+        writeBinary(distance);
         System.out.println("Arquivo distances.dino gravado em " + Time.timestampOf(System.currentTimeMillis() - BEGIN) + ".\n");
 
         System.out.println("---- Operacao finalizada em " + Time.timestampOf(System.currentTimeMillis() - TOTAL_TIME_COUNTER) + " ----");
     }
 
-    public static void write(byte[] content) {
+    public static void writeBinary(byte[] content) {
         try {
             RandomAccessFile rnd = new RandomAccessFile("distances.dino", "rw");
             FileChannel fileChannel = rnd.getChannel();
