@@ -35,7 +35,7 @@ public class GuiTest extends JFrame {
                 textArea.append("\nThe solution is: ");
                 textArea.append(s);
 
-                JOptionPane.showMessageDialog(null, "Solution found. To search for other state, please, set the text field and type again.");
+                JOptionPane.showMessageDialog(null, "Solution found. To search for other state, please, clear the text field and type again.");
             }
         });
 
