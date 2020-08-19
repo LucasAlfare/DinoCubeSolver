@@ -42,7 +42,8 @@ public class Search {
         long a = System.currentTimeMillis();
         loadFileToArray(distances, "distances.dino");
         //State s = new State(new byte[]{2, 6, 5, 0, 9, 8, 3, 1, 10, 7, 4});
-        State s = new State(new byte[]{4, 10, 3, 8, 1, 5, 0, 9, 7, 2, 6});
+        //State s = new State(new byte[]{4, 10, 3, 8, 1, 5, 0, 9, 7, 2, 6});
+        State s = new State(new byte[]{1, 9, 2, 5, 4, 7, 6, 3, 10, 8, 0});
         search(s);
         System.out.println(timestampOf(System.currentTimeMillis() - a));
     }
