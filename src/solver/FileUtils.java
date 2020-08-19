@@ -9,6 +9,19 @@ import java.nio.channels.FileChannel;
 
 public class FileUtils {
 
+    public static void writeText(String text) {
+        try {
+            RandomAccessFile rnd = new RandomAccessFile("Distances.java", "rw");
+            FileChannel fileChannel = rnd.getChannel();
+            ByteBuffer buf = fileChannel.map(FileChannel.MapMode.READ_WRITE, 0, text.length());
+            buf.put(text.getBytes());
+            rnd.close();
+            fileChannel.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void writeBinary(byte[] content) {
         try {
             RandomAccessFile rnd = new RandomAccessFile("distances.dino", "rw");
