@@ -9,25 +9,6 @@ import java.util.Arrays;
 
 public class Generator {
 
-    public static class State {
-
-        public byte[] permutation;
-        public static final int N_PIECES = 11;
-
-        public State(byte[] permutation) {
-            this.permutation = permutation;
-        }
-
-        public State multiply(State move) {
-            byte[] permutation = new byte[N_PIECES];
-            for (int i = 0; i < N_PIECES; i++) {
-                permutation[i] = this.permutation[move.permutation[i]];
-            }
-
-            return new State(permutation);
-        }
-    }
-
     public static final int N = 19958400;
     public static int[][] table;
     public static byte[] distance;
