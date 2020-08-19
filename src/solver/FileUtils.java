@@ -7,6 +7,9 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.channels.FileChannel;
 
+/**
+ * Some functions to fast I/O files.
+ */
 public class FileUtils {
 
     public static void writeText(String text, String pathname) {
