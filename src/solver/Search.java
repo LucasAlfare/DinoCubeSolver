@@ -6,6 +6,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.channels.FileChannel;
 
+import static solver.FileUtils.loadFileToArray;
 import static solver.Generator.Time.timestampOf;
 
 public class Search {
@@ -67,17 +68,5 @@ public class Search {
         }
     }
 
-    public static void loadFileToArray(byte[] destination) {
-        try (FileInputStream stream = new FileInputStream("distances.dino")) {
-            FileChannel inChannel = stream.getChannel();
-            ByteBuffer buffer = inChannel.map(FileChannel.MapMode.READ_ONLY, 0, inChannel.size());
-            buffer.order(ByteOrder.BIG_ENDIAN);
-            buffer.get(destination);
-            stream.close();
-            inChannel.close();
-            System.out.println(destination.length + " bytes carregados com sucesso no array especificado.");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 }

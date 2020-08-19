@@ -7,6 +7,8 @@ import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
+import static solver.FileUtils.writeBinary;
+
 public class Generator {
 
     public static final int N = 19958400;
@@ -89,21 +91,6 @@ public class Generator {
         System.out.println("Arquivo distances.dino gravado em " + Time.timestampOf(System.currentTimeMillis() - BEGIN) + ".\n");
 
         System.out.println("---- Operacao finalizada em " + Time.timestampOf(System.currentTimeMillis() - TOTAL_TIME_COUNTER) + " ----");
-    }
-
-    public static void writeBinary(byte[] content) {
-        try {
-            RandomAccessFile rnd = new RandomAccessFile("distances.dino", "rw");
-            FileChannel fileChannel = rnd.getChannel();
-            ByteBuffer buf = fileChannel.map(FileChannel.MapMode.READ_WRITE, 0, content.length);
-            for (byte b : content) {
-                buf.put(b);
-            }
-            rnd.close();
-            fileChannel.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     //para debugar
