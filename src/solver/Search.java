@@ -8,13 +8,17 @@ public class Search {
     public static byte[] distances = new byte[19958400];
     static int[] names = {1, -1, 2, -2, 3, -3, 4, -4, 5, -5, 6, -6};
 
-    public static void main(String[] args) {
+    static {
         long a = System.currentTimeMillis();
         loadFileToArray(distances, "distances.dino");
         State s = new State();
         s.applySequence("1 -2 4 6");
         search(s);
         System.out.println(timestampOf(System.currentTimeMillis() - a));
+    }
+
+    public static void main(String[] args) {
+
     }
 
     //TODO: implement IDA* to search?
