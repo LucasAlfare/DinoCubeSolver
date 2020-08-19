@@ -40,7 +40,7 @@ public class Search {
 
     public static void main(String[] args) {
         long a = System.currentTimeMillis();
-        loadFileToArray(distances);
+        loadFileToArray(distances, "distances.dino");
         //State s = new State(new byte[]{2, 6, 5, 0, 9, 8, 3, 1, 10, 7, 4});
         State s = new State(new byte[]{4, 10, 3, 8, 1, 5, 0, 9, 7, 2, 6});
         search(s);

@@ -4,7 +4,7 @@ public class BinaryToSource {
 
     public static void main(String[] args) {
         byte[] distances = new byte[19958400];
-        FileUtils.loadFileToArray(distances);
+        FileUtils.loadFileToArray(distances, "distances.dino");
 
         StringBuilder src = new StringBuilder("package solver;public class Distances{" + "public static final byte[]DISTANCES={");
 
@@ -16,6 +16,6 @@ public class BinaryToSource {
         src.append(distances[len - 1]).append("};");
         src.append("}");
 
-        FileUtils.writeText(src.toString());
+        FileUtils.writeText(src.toString(), "Distances.java");
     }
 }

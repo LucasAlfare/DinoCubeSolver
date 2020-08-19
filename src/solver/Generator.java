@@ -87,7 +87,7 @@ public class Generator {
 
         System.out.println("Gravando distancias no arquivo distances.dino...");
         BEGIN = System.currentTimeMillis();
-        writeBinary(distance);
+        writeBinary(distance, "distances.dino");
         System.out.println("Arquivo distances.dino gravado em " + Time.timestampOf(System.currentTimeMillis() - BEGIN) + ".\n");
 
         System.out.println("---- Operacao finalizada em " + Time.timestampOf(System.currentTimeMillis() - TOTAL_TIME_COUNTER) + " ----");

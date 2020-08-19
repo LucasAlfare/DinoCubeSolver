@@ -9,9 +9,9 @@ import java.nio.channels.FileChannel;
 
 public class FileUtils {
 
-    public static void writeText(String text) {
+    public static void writeText(String text, String pathname) {
         try {
-            RandomAccessFile rnd = new RandomAccessFile("Distances.java", "rw");
+            RandomAccessFile rnd = new RandomAccessFile(pathname, "rw");
             FileChannel fileChannel = rnd.getChannel();
             ByteBuffer buf = fileChannel.map(FileChannel.MapMode.READ_WRITE, 0, text.length());
             buf.put(text.getBytes());
@@ -22,9 +22,9 @@ public class FileUtils {
         }
     }
 
-    public static void writeBinary(byte[] content) {
+    public static void writeBinary(byte[] content, String pathname) {
         try {
-            RandomAccessFile rnd = new RandomAccessFile("distances.dino", "rw");
+            RandomAccessFile rnd = new RandomAccessFile(pathname, "rw");
             FileChannel fileChannel = rnd.getChannel();
             ByteBuffer buf = fileChannel.map(FileChannel.MapMode.READ_WRITE, 0, content.length);
             for (byte b : content) {
@@ -37,8 +37,8 @@ public class FileUtils {
         }
     }
 
-    public static void loadFileToArray(byte[] destination) {
-        try (FileInputStream stream = new FileInputStream("distances.dino")) {
+    public static void loadFileToArray(byte[] destination, String pathname) {
+        try (FileInputStream stream = new FileInputStream(pathname)) {
             FileChannel inChannel = stream.getChannel();
             ByteBuffer buffer = inChannel.map(FileChannel.MapMode.READ_ONLY, 0, inChannel.size());
             buffer.order(ByteOrder.BIG_ENDIAN);
