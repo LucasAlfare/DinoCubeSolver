@@ -49,6 +49,7 @@ public class Search {
 
     //TODO: implement IDA* to search?
     public static void search(State target) {
+        State aux;
         while (true) {
             int currentIndex = IndexMapping.evenPermutationToIndex(target.permutation);
             if (distances[currentIndex] == 0) {
@@ -57,7 +58,7 @@ public class Search {
             }
 
             for (int i = 0; i < moves.length; i++) {
-                State aux = target.multiply(moves[i]);
+                aux = target.multiply(moves[i]);
                 int nextIndex = IndexMapping.evenPermutationToIndex(aux.permutation);
                 if (distances[nextIndex] < distances[currentIndex]) {
                     System.out.print(names[i] + " ");
@@ -67,6 +68,4 @@ public class Search {
             }
         }
     }
-
-
 }
