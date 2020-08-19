@@ -14,10 +14,6 @@ public class Search {
         System.out.println(timestampOf(System.currentTimeMillis() - a));
     }
 
-    public static void main(String[] args) {
-
-    }
-
     //TODO: implement IDA* to search?
     public static String search(State target) {
         State aux;
