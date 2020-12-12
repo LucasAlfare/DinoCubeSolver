@@ -1,13 +1,13 @@
-package solver;
+package com.dino.solver;
 
 /**
  * Helper methods from the Prisma Puzzle Timer, by Walter Souza.
  * TODO: replace with bitwise operations
  */
-public class IndexMapping {
+class IndexMapping {
 
     // even permutation
-    public static int evenPermutationToIndex(byte[] permutation) {
+    static int evenPermutationToIndex(byte[] permutation) {
         int index = 0;
         for (int i = 0; i < permutation.length - 2; i++) {
             index *= permutation.length - i;
@@ -21,7 +21,7 @@ public class IndexMapping {
         return index;
     }
 
-    public static byte[] indexToEvenPermutation(int index, int length) {
+    static byte[] indexToEvenPermutation(int index, @SuppressWarnings("SameParameterValue") int length) {
         int sum = 0;
         byte[] permutation = new byte[length];
 

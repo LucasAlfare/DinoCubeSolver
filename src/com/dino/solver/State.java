@@ -1,29 +1,13 @@
-package solver;
+package com.dino.solver;
 
 import java.util.Arrays;
+
+import static com.dino.solver.Constants.MOVES;
+import static com.dino.solver.Constants.N_PIECES;
 
 public class State {
 
     public byte[] permutation;
-    public static final int N_PIECES = 11;
-
-    private static final State M1 = new State(new byte[]{6, 1, 2, 0, 4, 5, 3, 7, 8, 9, 10});
-    private static final State M2 = new State(new byte[]{1, 7, 2, 3, 4, 5, 6, 0, 8, 9, 10});
-    private static final State M3 = new State(new byte[]{0, 2, 4, 3, 1, 5, 6, 7, 8, 9, 10});
-    private static final State M4 = new State(new byte[]{0, 1, 3, 5, 4, 2, 6, 7, 8, 9, 10});
-
-    private static final State M5 = new State(new byte[]{0, 1, 2, 3, 8, 5, 6, 7, 9, 4, 10});
-    private static final State M6 = new State(new byte[]{0, 1, 2, 3, 4, 5, 6, 9, 8, 10, 7});
-
-    //moves order: 1 -1 2 -2 3 -3 4 -4 5 -5 6 -6 (total: 12)
-    public static final State[] MOVES = {
-            M1, M1.multiply(M1),
-            M2, M2.multiply(M2),
-            M3, M3.multiply(M3),
-            M4, M4.multiply(M4),
-            M5, M5.multiply(M5),
-            M6, M6.multiply(M6)
-    };
 
     public State() {
         permutation = new byte[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -45,7 +29,7 @@ public class State {
     public void applySequence(String seq) {
         String[] names = seq.split(" ");
         for (String n : names) {
-            applyMoves(Integer.parseInt(n));
+            applyMoves(Byte.parseByte(n));
         }
     }
 
@@ -76,6 +60,9 @@ public class State {
                 aux = aux.multiply(MOVES[10]);
             } else if (n == -6) {
                 aux = aux.multiply(MOVES[11]);
+            } else {
+                System.err.println("Can't apply the move of label " + n + ". Only the numbers -6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6 are allowed.");
+                break;
             }
         }
 

@@ -1,4 +1,4 @@
-package solver;
+package com.dino.solver;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -8,11 +8,11 @@ import java.nio.ByteOrder;
 import java.nio.channels.FileChannel;
 
 /**
- * Some functions to fast R/W files.
+ * Alguns métodos para rápida leitura e escrita de arquivos.
  */
-public class FileUtils {
+class FileUtils {
 
-    public static void writeText(String text, String pathname) {
+    static void writeText(String text, String pathname) {
         try {
             RandomAccessFile rnd = new RandomAccessFile(pathname, "rw");
             FileChannel channel = rnd.getChannel();
@@ -25,14 +25,12 @@ public class FileUtils {
         }
     }
 
-    public static void writeBinary(byte[] content, String pathname) {
+    static void writeBinary(byte[] content, String pathname) {
         try {
             RandomAccessFile rnd = new RandomAccessFile(pathname, "rw");
             FileChannel channel = rnd.getChannel();
             ByteBuffer buf = channel.map(FileChannel.MapMode.READ_WRITE, 0, content.length);
-            for (byte b : content) {
-                buf.put(b);
-            }
+            for (byte b : content) buf.put(b);
             rnd.close();
             channel.close();
         } catch (IOException e) {
@@ -40,7 +38,7 @@ public class FileUtils {
         }
     }
 
-    public static void loadFileToArray(byte[] destination, String pathname) {
+    static boolean loadFileToArray(byte[] destination, String pathname) {
         try (FileInputStream stream = new FileInputStream(pathname)) {
             FileChannel channel = stream.getChannel();
             ByteBuffer buffer = channel.map(FileChannel.MapMode.READ_ONLY, 0, channel.size());
@@ -49,8 +47,11 @@ public class FileUtils {
             stream.close();
             channel.close();
             System.out.println(destination.length + " bytes carregados com sucesso no array especificado.");
+            return true;
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return false;
     }
 }

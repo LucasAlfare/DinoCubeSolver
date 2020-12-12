@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="dino:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/dino_jar</output-path>
+    <root id="archive" name="Dino.jar">
+      <element id="module-output" name="Dino" />
+    </root>
+  </artifact>
+</component>
