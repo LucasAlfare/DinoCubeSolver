@@ -17,18 +17,18 @@ public class Search {
     //TODO: implement IDA* to search?
     public static String search(State target) {
         State aux;
-        StringBuilder solutiuon = new StringBuilder();
+        StringBuilder solution = new StringBuilder();
         while (true) {
             int currentIndex = IndexMapping.evenPermutationToIndex(target.permutation);
             if (distances[currentIndex] == 0) {
-                return solutiuon.toString();
+                return solution.toString();
             }
 
             for (int i = 0; i < State.MOVES.length; i++) {
                 aux = target.multiply(State.MOVES[i]);
                 int nextIndex = IndexMapping.evenPermutationToIndex(aux.permutation);
                 if (distances[nextIndex] < distances[currentIndex]) {
-                    solutiuon.append(names[i]).append(" ");
+                    solution.append(names[i]).append(" ");
                     target.copy(aux);
                     break;
                 }
