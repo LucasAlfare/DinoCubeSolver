@@ -24,22 +24,24 @@ public class Search {
             init();
         }
 
+        State moving = new State();
+        moving.copy(target);
         State aux;
         ArrayList<Byte> solution = new ArrayList<>();
         long a = System.currentTimeMillis();
         while (true) {
-            int currentIndex = IndexMapping.evenPermutationToIndex(target.permutation);
+            int currentIndex = IndexMapping.evenPermutationToIndex(moving.permutation);
             if (Constants.DISTANCES[currentIndex] == 0) {
                 System.out.println("[SEARCH] " + Time.timestampFor(System.currentTimeMillis() - a) + " para encontrar a solução.");
                 return solution;
             }
 
             for (int i = 0; i < Constants.MOVES.length; i++) {
-                aux = target.multiply(Constants.MOVES[i]);
+                aux = moving.multiply(Constants.MOVES[i]);
                 int nextIndex = IndexMapping.evenPermutationToIndex(aux.permutation);
                 if (Constants.DISTANCES[nextIndex] < Constants.DISTANCES[currentIndex]) {
                     solution.add(Constants.NAMES[i]);
-                    target.copy(aux);
+                    moving.copy(aux);
                     break;
                 }
             }
