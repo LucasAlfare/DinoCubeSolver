@@ -6,20 +6,9 @@
 </head>
 <body>
 <input type="file" id="distance-input" name="file">
-<button type="button" id="search" onclick="btClickFunction()" disabled>BUSCAR!</button>
+<button type="button" id="search" disabled>BUSCAR!</button>
 <script>
-    let input = document.getElementById('distance-input');
 
-    input.onchange = function () {
-        loadDistancesFile(this.files[0]);
-    }
-
-    function btClickFunction() {
-        //TODO: criar input para criar o estado a partir dele
-        const s = new State([4, 10, 3, 8, 1, 5, 0, 9, 7, 2, 6]);
-        search(s);
-    }
 </script>
-<script src="index.js"></script>
 </body>
 </html>
