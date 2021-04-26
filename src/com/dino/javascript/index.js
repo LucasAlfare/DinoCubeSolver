@@ -1,3 +1,26 @@
+/*
+12 positions at depth 1
+123 positions at depth 2
+1285 positions at depth 3
+13433 positions at depth 4
+138713 positions at depth 5
+1287973 positions at depth 6
+6410320 positions at depth 7
+8195690 positions at depth 8
+2886235 positions at depth 9
+430985 positions at depth 10
+45882 positions at depth 11
+5148 positions at depth 12
+704 positions at depth 13
+96 positions at depth 14
+13 positions at depth 15
+3 positions at depth 16
+1 positions at depth 17
+0 positions at depth 18
+
+total: 19416616
+*/
+
 const nPerms = 19958400;
 const map = [];
 let indexed = false;
@@ -130,4 +153,4 @@ function doIndexing() {
     indexed = true;
 }
 
-doIndexing()
+//doIndexing()
