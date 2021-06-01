@@ -61,18 +61,15 @@ function move(state, m) {
             break;
     }
 
-    let tmp = state[a];
-    state[a] = state[c];
-    state[c] = state[b];
-    state[b] = tmp;
-
-    if (m < 0) {
-        tmp = state[a];
+    function swap() {
+        let tmp = state[a];
         state[a] = state[c];
         state[c] = state[b];
         state[b] = tmp;
     }
 
+    swap();
+    if (m < 0) swap();
     return state;
 }
 
