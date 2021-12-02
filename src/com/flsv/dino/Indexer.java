@@ -1,6 +1,5 @@
 package com.flsv.dino;
 
-
 import java.util.Arrays;
 
 import static com.flsv.dino.Globals.*;
